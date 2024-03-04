@@ -1,11 +1,10 @@
-import Captcha from "../components/Captcha";
-
+import React from "react";
+import Navbar from "../components/Navbar";
 
 export default function Home() {
   return (
-    <div>
-      <h1>Hello Worlds!</h1>
-      <Captcha/>
+    <div className="max-h-full min-h-full">
+      <Navbar/>
     </div>
   );
 }

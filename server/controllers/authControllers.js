@@ -39,7 +39,7 @@ class AuthController {
   static async getAllUser(_, res, __) {
     try {
       const getAllUSer = await User.findAll();
-      console.log(getAllUSer);
+      // console.log(getAllUSer);
       res.status(200).json({
         message: "Success Getting All User Data",
         getAllUSer,

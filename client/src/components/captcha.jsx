@@ -31,7 +31,7 @@ export default function Captcha() {
     }
   };
   return (
-    <div>
+    <div className="bg-white text-black p-1 m-0 max-h-full min-h-full flex flex-col">
         {success && (
           <Alert
           variant="outlined"
@@ -40,13 +40,13 @@ export default function Captcha() {
           successful
           </Alert>
         )}
-        <div>
+        <div className="justify-center">
           <CardHeader title="Validate Captcha" />
           <Divider />
 
           <CardContent>
             <CardActions>
-              <div className="text-white">
+              <div className="">
                 {captcha}
                 <button
                   startIcon={<RefreshIcon/>}
@@ -61,7 +61,7 @@ export default function Captcha() {
               value={text}
               onChange={(e) => setText(e.target.value)}
               error={valid}
-              className="text-white"
+              color="success"
               helperText={valid && "Invalid Captcha"}
               />
             <button
