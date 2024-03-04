@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 export default function Login() {
   const navigate = useNavigate();
-  const [form, setForm] = useState({ email: "", password: "" });
+  const [form, setForm] = useState({ username: "", password: "" });
   function handleInput(event) {
     setForm((prev) => {
       return { ...prev, [event.target.name]: event.target.value };
@@ -15,13 +15,14 @@ export default function Login() {
   }
   async function handleLogin(event) {
     try {
+      console.log("masuk");
       event.preventDefault();
       const { data } = await axios({
         method: "post",
         url: URL_DATA + "/login",
-        data: { email: form.email, password: form.password },
+        data: { username: form.username, password: form.password },
       });
-      localStorage.access_token = data.access_token;
+      // localStorage.access_token = data.access_token;
       navigate("/");
     } catch (error) {
       swal("Login Failed", error.response.data.message, "error");
@@ -41,10 +42,10 @@ export default function Login() {
               <input
                 onChange={handleInput}
                 value={form.email}
-                id="email"
-                type="email"
+                id="username"
+                type="text"
                 className="form-control"
-                name="email"
+                name="username"
                 required=""
               />
             </div>
