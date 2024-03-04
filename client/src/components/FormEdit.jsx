@@ -16,8 +16,6 @@ export default function FormEdit() {
 
   console.log(formData);
 
-  
-
   const fetchData = async (e) => {
     try {
       const { data } = await axios({
@@ -38,7 +36,7 @@ export default function FormEdit() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     try {
       const { data } = await axios({
         method: "put",
@@ -59,6 +57,7 @@ export default function FormEdit() {
       [e.target.name]: e.target.value,
     });
   };
+
 
   useEffect(() => {
     fetchData();

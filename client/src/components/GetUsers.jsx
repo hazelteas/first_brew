@@ -2,12 +2,13 @@ import axios from "axios";
 import { URL_DATA } from "../CONSTANT";
 import { useEffect, useState } from "react";
 import swal from "sweetalert";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 export default function GetUsers() {
   const [data, setData] = useState(null);
   const navigate = useNavigate();
-  
+  const {userId} = useParams()
+
   async function UserData() {
     try {
       const response = await axios({
@@ -32,7 +33,7 @@ export default function GetUsers() {
 
   const handleDelete = async (userId) => {
     try {
-      await axios.delete(URL_DATA + `/${userId}/delete`); 
+      await axios.delete(URL_DATA + `/getAllUser/${userId}/delete`); 
      
       navigate('/getUser'); 
     } catch (error) {
